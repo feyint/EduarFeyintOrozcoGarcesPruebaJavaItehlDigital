@@ -1,0 +1,111 @@
+<br>
+<div class="container">
+  <div class=" card form-generic" >
+    <div class="card-header">
+      Nuevo curso
+    </div>
+
+    <div class="card-body">
+      <form [formGroup]="cursoForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label>Nombre</label>
+          <input
+            type="text"
+            formControlName="nombre"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.nombre.errors }"
+          />
+          <div *ngIf="submitted && f.nombre.errors" class="invalid-feedback">
+            <div *ngIf="f.nombre.errors.required">Campo requerido</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Descripción</label>
+          <input
+            type="text"
+            formControlName="descripcion"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.descripcion.errors }"
+          />
+          <div *ngIf="submitted && f.descripcion.errors" class="invalid-feedback">
+            <div *ngIf="f.descripcion.errors.required">Campo requerido</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Costo</label>
+          <input
+            type="text"
+            formControlName="costo"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.costo.errors }"
+          />
+          <div *ngIf="submitted && f.costo.errors" class="invalid-feedback">
+            <div *ngIf="f.costo.errors.required">Campo requerido</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Horas</label>
+          <input
+            type="text"
+            formControlName="horas"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.horas.errors }"
+          />
+          <div *ngIf="submitted && f.horas.errors" class="invalid-feedback">
+            <div *ngIf="f.horas.errors.required">Campo requerido</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Dirigido a</label>
+          <input
+            type="text"
+            formControlName="dirigido_a"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.dirigido_a.errors }"
+          />
+          <div *ngIf="submitted && f.dirigido_a.errors" class="invalid-feedback">
+            <div *ngIf="f.dirigido_a.errors.required">Campo requerido</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Modalidad</label>
+          <select
+            type="text"
+            formControlName="modalidad"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.modalidad.errors }"
+          >
+            <option value="">.:Seleccione modalidad:.</option>
+              <option *ngFor="let modalidad of modalidades" value="{{modalidad.id}}">
+                {{modalidad.descripcion}}
+              </option>
+          </select>
+
+          <div *ngIf="submitted && f.modalidad.errors" class="invalid-feedback">
+            <div *ngIf="f.modalidad.errors.required">Campo requerido</div>
+          </div>
+        </div>
+
+      <hr>
+
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">Guardar</button>
+          &nbsp;
+          <button
+            type="button"
+            (click)="onReset()"
+            class="btn btn-warning float-right"
+          >
+            Cancelar
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

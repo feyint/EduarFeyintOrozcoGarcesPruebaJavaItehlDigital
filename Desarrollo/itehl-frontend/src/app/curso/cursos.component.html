@@ -1,0 +1,51 @@
+<br>
+<div class="container">
+  <div class=" card table-generic" >
+    <div class="card-header">
+      Cursos disponibles
+    </div>
+    <div class="card-body">
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end col-md-12">
+        <a class="btn btn-primary btn-sm " [routerLink]="['/curso']" role="button">Nuevo</a>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Modalidad</label>
+          <select
+            type="text"
+            [(ngModel)]="modalidad"
+            class="form-select"
+            (change)="buscarCursos($event)"
+          >
+            <option [selected]="true">.:Seleccione modalidad:.</option>
+              <option *ngFor="let modalidad of modalidades" value="{{modalidad.id}}">
+                {{modalidad.descripcion}}
+              </option>
+          </select>
+        </div>
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Costo</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of cursos">
+            <th scope="row">{{item.id}}</th>
+            <td>{{item.nombre}}</td>
+            <td>{{item.descripcion}}</td>
+            <td>$&nbsp;{{item.costo}}</td>
+            <td>
+              <a class="btn btn-info btn-sm " [routerLink]="['/curso', item.id]" role="button">Editar</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
