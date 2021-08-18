@@ -1,0 +1,35 @@
+<br>
+<div class="container">
+  <div class=" card table-generic" >
+    <div class="card-header">
+      Descuentos disponibles
+    </div>
+    <div class="card-body">
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end col-md-12">
+        <a class="btn btn-primary btn-sm " [routerLink]="['/descuento']" role="button">Nuevo</a>
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Descuento</th>
+            <th scope="col">fecha</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of descuentos">
+            <th scope="row">{{item.id}}</th>
+            <td>{{item.nombre}}</td>
+            <td>{{item.descuento}}%</td>
+            <td>{{item.fecha}}</td>
+            <td>
+              <a class="btn btn-info btn-sm " [routerLink]="['/descuento', item.id]" role="button">Editar</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
